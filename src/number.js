@@ -79,11 +79,11 @@ function factory ($parse) {
         ngModel.$parsers.unshift(card.parse)
 
         ngModel.$validators.ccNumber = function validateCcNumber (number) {
-          return card.isValid(number)
+          return number && card.isValid(number)
         }
 
         ngModel.$validators.ccNumberType = function validateCcNumberType (number) {
-          return card.isValid(number, $parse($attributes.ccType)($scope))
+          return number && card.isValid(number, $parse($attributes.ccType)($scope))
         }
       }
     }
