@@ -87,7 +87,7 @@ function factory ($parse) {
         ngModel.$validators.ccNumberType = function validateCcNumberType (number) {
           var type = $parse($attributes.ccType)($scope)
           if (!type) card.isValid(number)
-          return number array(type).some(partial(card.isValid, number))
+          return number && array(type).some(partial(card.isValid, number))
         }
       }
     }
